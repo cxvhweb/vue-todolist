@@ -42,11 +42,6 @@ const routes=[
       component: Home
     },
     {
-      path: '/404',
-      name: '404',
-      component: Notfind
-    },
-    {
       path: '/test',
       name: 'Testrouter',
       component: Testrouter
@@ -70,6 +65,11 @@ const routes=[
       path: '/vuex',
       name: 'VuexPage',
       component: VuexPage
+    },
+    {
+      path: '*',
+      name: '404',
+      component: Notfind
     }
 ];
 const router=new VueRouter({
@@ -80,7 +80,6 @@ router.beforeEach((to, from, next) => {
   const isshow=localStorage.isshow&&localStorage.isshow==="true"?true:false;
   if(
     to.path=='/'||
-    to.path=='/404'||
     to.path=='/test'||
     to.path=='/a'||
     to.path=='/b'||
