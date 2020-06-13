@@ -1,6 +1,5 @@
 <template>
     <div>
-      <div v-if="this.list.length">
       <el-table
         :data="pageList"
         ref="multipleTable"
@@ -49,9 +48,9 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-button-group class="table-pages">
+      <el-button-group class="table-pages" v-if="this.list.length">
         <el-button class="btn" size="small" type="primary" icon="el-icon-arrow-left"
-       :disabled="curpage<2"
+      :disabled="curpage<2"
         @click="prev"
         ></el-button>
         <el-button class="btn" size="small" type="primary">{{curpage}}</el-button>
@@ -60,7 +59,6 @@
         @click="next"
         ></el-button>
       </el-button-group>
-      </div>
     </div>
 </template>
 <script>
@@ -122,7 +120,7 @@ import {mapActions} from 'vuex'
       },
       mounted(){
         // 初始化 List
-        this.initList();
+        //this.initList();
         // 绑定自定义事件，第二个参数建议用指针，方便解绑
         event.$on('keywords',this.searchFn)
       },
