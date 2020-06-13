@@ -120,7 +120,7 @@ import {mapActions} from 'vuex'
       },
       mounted(){
         // 初始化 List
-        //this.initList();
+        this.initList();
         // 绑定自定义事件，第二个参数建议用指针，方便解绑
         event.$on('keywords',this.searchFn)
       },
