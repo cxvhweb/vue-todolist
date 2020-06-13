@@ -10,6 +10,12 @@ import PageA from '@/pages/Testrouter/a.vue'
 import PageB from '@/pages/Testrouter/b.vue'
 import PageC from '@/pages/Testrouter/c.vue'
 
+
+import Form from '@/pages/Form/index.vue'
+import Table from '@/pages/Table/index.vue'
+import Add from '@/pages/Table/addItem.vue'
+import Edit from '@/pages/Table/editItem.vue'
+
 import VuexPage from '@/pages/Vuex/index.vue'
 
 Vue.use(VueRouter)
@@ -36,11 +42,31 @@ export default new Router({
 */
 // 路由守卫使用
 const routes=[
-    {
-      path: '/',
-      name: 'todolist',
-      component: Home
-    },
+  {
+    path: '/',
+    name: 'table',
+    component: Table
+  },
+  {
+    path: '/add',
+    name: 'add',
+    component: Add
+  },
+  {
+    path: '/edit/:id',
+    name: 'edit',
+    component: Edit
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: Form
+  },
+  {
+    path: '/todolist',
+    name: 'todolist',
+    component: Home
+  },
     {
       path: '/test',
       name: 'Testrouter',
@@ -80,6 +106,11 @@ router.beforeEach((to, from, next) => {
   const isshow=localStorage.isshow&&localStorage.isshow==="true"?true:false;
   if(
     to.path=='/'||
+    to.path=='/add'||
+    //to.path=='/edit'|| "/edit/1591777890105"
+    to.path.indexOf('/edit')!==-1||
+    to.path=='/form'||
+    to.path=='/todolist'||
     to.path=='/test'||
     to.path=='/a'||
     to.path=='/b'||
@@ -88,7 +119,6 @@ router.beforeEach((to, from, next) => {
     next();
   }else{
     // 拦截c /c
-    console.log(isshow)
     isshow?next():next('/test');
   }
 })

@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <router-link to="/">todolist</router-link>
+    <router-link to="/">首页</router-link>>
+    <router-link to="/form">Form</router-link>
+    <router-link to="/table">Table</router-link>
+
+
+    <router-link to="/todolist">todolist</router-link>
     <router-link to="/404">404</router-link>
     <router-link to="/test">Testrouter</router-link>
     <router-link to="/a">a</router-link>

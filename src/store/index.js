@@ -30,6 +30,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import crement from './modules/crement'
 import money from './modules/money'
+import list from './modules/list'
 
 Vue.use(Vuex);
 /*
@@ -44,6 +45,7 @@ export default store;
 export default new Vuex.Store({
   modules:{
     crement,
-    money
+    money,
+    list
   }
 })
